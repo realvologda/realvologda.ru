@@ -35,7 +35,7 @@
 
 	<div class="span9">
 		<div class="block-header">
-			<h2>{{ house.street.full_name }}, {{ house.number }}</h2>
+			<h2>{{ house.street.full_name }}, {{ house.number }} (<a href="/admin/house/house/{{ house.id }}/">править</a>)</h2>
 			{% if house.name %}<p>{{ house.name }}</p>{% endif %}
 		</div>
 
