@@ -51,12 +51,14 @@ def street(request, id):
 def house(request, id):
     h = House.objects.get(pk=id)
     s_list = Street.objects.order_by('name').annotate(house_count=Count('house'))
+    passport = HousePassport.objects.filter(house=h)
     photo = HousePhoto.objects.filter(house=h)
 
     return render_to_response('house/house.html', {
         'house': h,
         'street_list': s_list,
         'photo': photo,
+        'passport': passport,
         'is_admin': True,
         'CMADE_KEY': settings.CMADE_KEY,
         }, context_instance=RequestContext(request))

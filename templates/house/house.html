@@ -116,13 +116,6 @@
 			</tr>
 		{% endif %}
 
-		{% if is_admin and house.pasport %}
-			<tr>
-				<th>Паспорт</th>
-				<td>{{ house.pasport }}</td>
-			</tr>
-		{% endif %}
-
 		{% if house.material %}
 			<tr>
 				<th>Тип</th>
@@ -137,14 +130,14 @@
 			</tr>
 		{% endif %}
 
-		{% if is_admin and house.documents %}
+		{% if user.is_authenticated and house.documents %}
 			<tr>
 				<th>Документооборот</th>
 				<td>{{ house.documents|safe }}</td>
 			</tr>
 		{% endif %}
 
-		{% if is_admin and house.monitoring %}
+		{% if user.is_authenticated and house.monitoring %}
 			<tr>
 				<th>Мониторинг</th>
 				<td>{{ house.monitoring|safe }}</td>
@@ -157,7 +150,24 @@
 				<td>{{ house.extra_info|safe }}</td>
 			</tr>
 		{% endif %}
+
+		{% if user.is_authenticated and house.hidden_info %}
+			<tr>
+				<th>Скрытая информация</th>
+				<td>{{ house.hidden_info|safe }}</td>
+			</tr>
+		{% endif %}
 		</table>
+
+	{% if user.is_authenticated and passport %}
+		<ul class="thumbnails">
+		{% for p in passport %}
+			<li class="span3">
+				<a href="{{ p.file.src }}" class="thumbnail" target="_blank"><img src="{{ p.file.src_300 }}" alt="" /></a>
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
 
 	{% if photo %}
 		<ul class="thumbnails">
