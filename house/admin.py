@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 from django.conf import settings
 
-from house.models import Street, House, HousePhoto, HouseEvent
+from house.models import Street, House, HousePhoto, HousePassport, HouseEvent
 
 
 class StreetAdmin(admin.ModelAdmin):
@@ -21,6 +21,10 @@ class StreetAdmin(admin.ModelAdmin):
 
 class HousePhotoInline(admin.TabularInline):
     model = HousePhoto
+
+
+class HousePassportInline(admin.TabularInline):
+    model = HousePassport
 
 
 class HouseEventInline(admin.TabularInline):
@@ -54,7 +58,7 @@ class HouseAdmin(admin.ModelAdmin):
             'fields': ('complex', 'complex_name', 'complex_root', 'complex_kult_id',)
         }),
     )
-    inlines = (HousePhotoInline, HouseEventInline,)
+    inlines = (HousePhotoInline, HousePassportInline, HouseEventInline,)
 
     def addr(obj):
         return ("%s, %s" % (obj.street.name, obj.number))

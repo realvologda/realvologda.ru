@@ -117,6 +117,7 @@ class House(models.Model):
     complex_kult_id = models.PositiveIntegerField(blank=True, null=True, verbose_name=_("ID Kulturnoe Nasledie")) # temporary
 
     extra_info = tinymce_models.HTMLField(blank=True, verbose_name=_("Additional"))
+    hidden_info = tinymce_models.HTMLField(blank=True, verbose_name=_("Hidden"))
 
     kult_checked = models.BooleanField(default=False, verbose_name=_("ID Kulturnoe Nasledie checked")) # temporary
     kult_problems = models.CharField(max_length=20, blank=True, verbose_name=_("Kulturnoe Nasledie problems")) # temporary
@@ -139,6 +140,20 @@ class HousePhoto(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+class HousePassport(models.Model):
+    def make_upload_folder(instance, filename):
+        dir_name, image_name = os.path.split(filename)
+        path = u"%d/passport_%s" % (instance.house.pk, image_name)
+        return path
+
+    house = models.ForeignKey('House', verbose_name=_("House"))
+    file = YFField(upload_to=make_upload_folder)
+    page = models.PositiveIntegerField(blank=True, verbose_name=_("Page"))
+
+    def __unicode__(self):
+        return u"%s" % self.page
 
 
 class HouseEvent(models.Model):
