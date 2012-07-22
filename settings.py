@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'tinymce',
+    'flatpages_tinymce',
     'yafotki',
 
     'tagging',
