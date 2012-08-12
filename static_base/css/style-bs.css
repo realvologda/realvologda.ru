@@ -111,8 +111,8 @@ header .nav > li > a {
 	border-width: 0 7px;
 	border-radius: 0;
 	margin: 0;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 25px;
+	padding-right: 25px;
 }
 
 header .nav > .active > a,
