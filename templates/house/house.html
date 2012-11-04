@@ -55,8 +55,12 @@
 		<table class="table">
 		{% if house.kult_id %}
 			<tr>
-				<th>На сайте Культурного наследия</th>
+				<th>На сайте «Культурное наследие»</th>
 				<td><a href="http://kulturnoe-nasledie.ru/monuments.php?id={{ house.kult_id }}" target="_blank">{{ house.kult_id }}</a></td>
+			</tr>
+			<tr>
+				<th>На сайте «Вики любит памятники»</th>
+				<td><a href="//wikilovesmonuments.ru/monument/kult/{{ house.kult_id }}" target="_blank">{{ house.kult_id }}</a></td>
 			</tr>
 		{% endif %}
 
