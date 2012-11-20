@@ -12,10 +12,8 @@ body {
 
 .header-top {
 	position: relative;
-	height: 187px;
-	margin-left: 104px;
+	height: 130px;
 	margin-bottom: 10px;
-	padding-left: 45px;
 	border-bottom: 3px solid #e31e24;
 }
 
@@ -26,28 +24,20 @@ header .quote {
 	line-height: 28px;
 }
 
-header h2 {
-	display: block;
-	position: absolute;
-	bottom: 20px;
-	font-size: 12px;
-	line-height: 14px;
-	padding-left: 10px;
-	border-left: 3px solid #333;
+header h1 {
+	float:left;
+	margin-right: 20px;
 }
 
 header a.brand {
 	display: block;
-	position: absolute;
-	left: -109px;
-	bottom: -3px;
-	width: 115px;
-	height: 190px;
+	width: 200px;
+	height: 150px;
 	padding: 0;
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	background: url(../img/logo.png) 0 0 no-repeat;
+	background: url(../img/logo.jpg) 0 0 no-repeat;
 }
 
 .date {

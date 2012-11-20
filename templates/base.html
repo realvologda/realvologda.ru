@@ -4,8 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-Language" content="ru" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>{% block title %}{% endblock %} ВОО ВООПИиК</title>
-	<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
+	<title>{% block title %}{% endblock %} Настоящая Вологда</title>
 
 	<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/style-bs.css" />
@@ -14,7 +13,7 @@
 	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 
 	{% block head %}
 	{% endblock %}
@@ -23,14 +22,13 @@
 	<div class="container">
 		<header>
 			<div class="header-top">
-				<h1><a class="brand" href="/">ВОО ВООПИиК</a></h1>
-				<div class="quote">Если ты выстрелишь в прошлое из пистолета,<br />будущее выстрелит в тебя из пушки.</div>
-				<h2>Вологодское областное отделение<br />Всероссийского общества охраны<br />Памятников истории и культуры</h2>
+				<h1><a class="brand" href="/">Настоящая Вологда</a></h1>
 				<div class="date">
 					<span class="date-d">{% now "j" %}</span>
 					<span class="date-m">{% now "E" %}</span>
 					<span class="date-y">{% now "Y" %}</span>
 				</div>
+				<div class="quote">Если ты выстрелишь в прошлое из пистолета,<br />будущее выстрелит в тебя из пушки.</div>
 			</div>
 
 			<ul class="nav nav-pills">
