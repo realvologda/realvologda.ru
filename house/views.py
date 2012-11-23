@@ -1,7 +1,6 @@
 from django.utils.translation import ugettext_lazy as _
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from django.conf import settings
 from django.db.models import Count, Max, Min
 from house.models import *
 
@@ -22,7 +21,6 @@ def index_page(request):
         'street_list': s_list,
         'house_list': h_list,
         'map_center': map_center,
-        'CMADE_KEY': settings.CMADE_KEY,
         }, context_instance=RequestContext(request))
 
 
@@ -44,7 +42,6 @@ def street(request, id):
         'street_list': s_list,
         'house_list': h_list,
         'map_center': map_center,
-        'CMADE_KEY': settings.CMADE_KEY,
         }, context_instance=RequestContext(request))
 
 
@@ -60,6 +57,5 @@ def house(request, id):
         'photo': photo,
         'passport': passport,
         'is_admin': True,
-        'CMADE_KEY': settings.CMADE_KEY,
         }, context_instance=RequestContext(request))
 

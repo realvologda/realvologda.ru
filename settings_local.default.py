@@ -21,5 +21,4 @@ DATABASES = {
 }
 
 SECRET_KEY = ''
-CMADE_KEY = ''
 

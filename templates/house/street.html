@@ -1,11 +1,4 @@
-{% extends "base.html" %}
-
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/content.css" />
-<link rel="stylesheet" href="//api.oldvologda.ru/leaflet/leaflet.css" />
-<!--[if lte IE 8]><link rel="stylesheet" href="//api.oldvologda.ru/leaflet/leaflet.ie.css" /><![endif]-->
-<script src="//api.oldvologda.ru/leaflet/leaflet.js"></script>
-{% endblock %}
+{% extends "house/base.html" %}
 
 {% block title %}{{ street.name }} — {% endblock %}
 
@@ -37,8 +30,6 @@
 		{% if map_center %}
 		<div id="map" class="map"></div>
 		<script type="text/javascript">
-			var cmUrl = 'http://{s}.tile.cloudmade.com/{{ CMADE_KEY }}/997/256/{z}/{x}/{y}.png';
-			var cmAttr = 'карта &copy; OpenStreetMap, рендер &copy; CloudMade';
 			var map = new L.Map('map');
 			map
 				.setView(new L.LatLng({{ map_center.lat|stringformat:"f" }}, {{ map_center.lon|stringformat:"f" }}), 15)
