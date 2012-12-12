@@ -65,6 +65,7 @@ class House(models.Model):
         ('F', _("Federal")),
         ('R', _("Regional")),
         ('M', _("Municipal")),
+        ('P', _("Private")),
     )
     
     MATERIAL_CHOICES = (
