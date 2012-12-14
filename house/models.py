@@ -50,6 +50,7 @@ class House(models.Model):
     USAGE_CHOICES = (
         ('H', _("Dwelling house")),
         ('O', _("Office building")),
+        ('U', _("Uninhabited house")),
     )
     
     PROTECTION_CHOICES = (
