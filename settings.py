@@ -126,6 +126,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # 'django.contrib.admindocs',
 
+    'treemenus',
+
     'tinymce',
     'flatpages_tinymce',
     'yafotki',
@@ -135,7 +137,6 @@ INSTALLED_APPS = (
     'zinnia',
 
     'house',
-    'menu',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -178,7 +179,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
 
     'django.core.context_processors.request',
-    'menu.context_processors.menu_items',
 )
 
 # Local settings
