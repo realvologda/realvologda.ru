@@ -25,11 +25,24 @@
 				.setView(new L.LatLng({{ map_center.lat|stringformat:"f" }}, {{ map_center.lon|stringformat:"f" }}), 14)
 				.addLayer(new L.TileLayer(cmUrl, { maxZoom: 18, attribution: cmAttr }));
 
+			markersLayer = new L.MarkerClusterGroup({
+				showCoverageOnHover: false,
+				disableClusteringAtZoom: 17
+			});
+
 		{% for house in house_list %}
 			{% if house.coord_lat %}
-				map.addLayer(new L.Marker(new L.LatLng({{ house.coord_lat|stringformat:"f" }}, {{ house.coord_lon|stringformat:"f" }})).bindPopup('<p><a href="/base/house/{{ house.id }}">{{ house.street.name }}, {{ house.number }}</p>'));
+				var marker = new L.Marker(
+					new L.LatLng({{ house.coord_lat|stringformat:"f" }}, {{ house.coord_lon|stringformat:"f" }}),
+					{ title: "{{ house.street.name }}, {{ house.number }}" }
+				);
+				marker
+					.bindPopup('<p><a href="/base/house/{{ house.id }}">{{ house.street.name }}, {{ house.number }}</p>')
+					.addTo(markersLayer);
 			{% endif %}
 		{% endfor %}
+
+			map.addLayer(markersLayer);
 		</script>
 		{% endif %}
 	</div>
