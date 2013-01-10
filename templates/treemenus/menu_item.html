@@ -1,7 +1,7 @@
 {% load tree_menu_tags %}
 
 {% if menu_item.has_children %}
-	<li{% if item.active %} class="active"{% endif %}><a href="{{ menu_item.url }}">{{ menu_item.caption }}</a>
+	<li{% ifequal request.path menu_item.url %} class="active"{% endifequal %}><a href="{{ menu_item.url }}">{{ menu_item.caption }}</a>
 		<ul>
 			{% for child in menu_item.children %}
 				{% show_menu_item child %}
@@ -9,7 +9,7 @@
 		</ul>
 	</li>
 {% else %}
-	<li{% if item.active %} class="active"{% endif %}><a href="{{ menu_item.url }}">{{ menu_item.caption }}</a></li>
+	<li{% ifequal request.path menu_item.url %} class="active"{% endifequal %}><a href="{{ menu_item.url }}">{{ menu_item.caption }}</a></li>
 {% endif %}
 
 
