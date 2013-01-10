@@ -3,9 +3,14 @@ import os.path
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from south.modelsinspector import add_introspection_rules
+
 from tinymce import models as tinymce_models
 from yafotki.fields import YFField
 
+
+add_introspection_rules([], ['^tinymce\.models\.HTMLField'])
+add_introspection_rules([], ['^yafotki\.fields\.YFField'])
 
 
 class Street(models.Model):
@@ -173,4 +178,3 @@ class HouseEvent(models.Model):
 
     def __unicode__(self):
         return self.date + ' - ' + self.text
-
