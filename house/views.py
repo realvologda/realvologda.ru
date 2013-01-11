@@ -6,9 +6,7 @@ from house.models import *
 
 
 def index_page(request):
-    s_list = Street.objects.order_by('name').annotate(house_count=Count('house'))
-    h_list = House.objects.all()
-    map_border = h_list.aggregate(Max('coord_lon'), Min('coord_lon'), Max('coord_lat'), Min('coord_lat'))
+    map_border = House.objects.aggregate(Max('coord_lon'), Min('coord_lon'), Max('coord_lat'), Min('coord_lat'))
     if map_border['coord_lat__max'] != None:
         map_center = {
             'lat': (map_border['coord_lat__max'] + map_border['coord_lat__min']) / 2,
@@ -18,17 +16,15 @@ def index_page(request):
         map_center = False
 
     return render_to_response('house/index.html', {
-        'street_list': s_list,
-        'house_list': h_list,
+        'cluster_list': Cluster.objects.all(),
+        'street_list': Street.objects.order_by('name').annotate(house_count=Count('house')),
+        'house_list': House.objects.all(),
         'map_center': map_center,
         }, context_instance=RequestContext(request))
 
 
 def street(request, id):
-    s = Street.objects.get(pk=id)
-    s_list = Street.objects.order_by('name').annotate(house_count=Count('house'))
-    h_list = House.objects.filter(street=id).extra(select={'number_int': 'LPAD(IF(number REGEXP "[0-9]$", CONCAT(number, " "), number), 6, " ")'}).order_by('number_int')
-    map_border = h_list.aggregate(Max('coord_lon'), Min('coord_lon'), Max('coord_lat'), Min('coord_lat'))
+    map_border = House.objects.filter(street=id).aggregate(Max('coord_lon'), Min('coord_lon'), Max('coord_lat'), Min('coord_lat'))
     if map_border['coord_lat__max'] != None:
         map_center = {
             'lat': (map_border['coord_lat__max'] + map_border['coord_lat__min']) / 2,
@@ -38,24 +34,23 @@ def street(request, id):
         map_center = False
 
     return render_to_response('house/street.html', {
-        'street': s,
-        'street_list': s_list,
-        'house_list': h_list,
+        'street': Street.objects.get(pk=id),
+        'cluster_list': Cluster.objects.all(),
+        'street_list': Street.objects.order_by('name').annotate(house_count=Count('house')),
+        'house_list': House.objects.filter(street=id).extra(select={'number_int': 'LPAD(IF(number REGEXP "[0-9]$", CONCAT(number, " "), number), 6, " ")'}).order_by('number_int'),
         'map_center': map_center,
         }, context_instance=RequestContext(request))
 
 
 def house(request, id):
     h = House.objects.get(pk=id)
-    s_list = Street.objects.order_by('name').annotate(house_count=Count('house'))
-    passport = HousePassport.objects.filter(house=h)
-    photo = HousePhoto.objects.filter(house=h)
 
     return render_to_response('house/house.html', {
         'house': h,
-        'street_list': s_list,
-        'photo': photo,
-        'passport': passport,
+        'cluster_list': Cluster.objects.all(),
+        'street_list': Street.objects.order_by('name').annotate(house_count=Count('house')),
+        'photo': HousePhoto.objects.filter(house=h),
+        'passport': HousePassport.objects.filter(house=h),
         'is_admin': True,
         }, context_instance=RequestContext(request))
 

@@ -40,6 +40,12 @@
 				.setView(new L.LatLng({{ house.coord_lat|stringformat:"f" }}, {{ house.coord_lon|stringformat:"f" }}), 16)
 				.addLayer(new L.TileLayer(cmUrl, {maxZoom: 18, attribution: cmAttr}))
 				.addLayer(new L.Marker(new L.LatLng({{ house.coord_lat|stringformat:"f" }}, {{ house.coord_lon|stringformat:"f" }})));
+
+	{% for cluster in cluster_list %}
+		{% if cluster.geometry %}
+			L.polygon([{{ cluster.geometry }}], { color: "#e31e24", fillOpacity: 0.1 }).addTo(map);
+		{% endif %}
+	{% endfor %}
 		</script>
 		{% endif %}
 

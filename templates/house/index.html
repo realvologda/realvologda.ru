@@ -25,6 +25,12 @@
 				.setView(new L.LatLng({{ map_center.lat|stringformat:"f" }}, {{ map_center.lon|stringformat:"f" }}), 14)
 				.addLayer(new L.TileLayer(cmUrl, { maxZoom: 18, attribution: cmAttr }));
 
+		{% for cluster in cluster_list %}
+			{% if cluster.geometry %}
+				L.polygon([{{ cluster.geometry }}], { color: "#e31e24", fillOpacity: 0.1 }).addTo(map);
+			{% endif %}
+		{% endfor %}
+
 			markersLayer = new L.MarkerClusterGroup({
 				showCoverageOnHover: false,
 				disableClusteringAtZoom: 17
