@@ -13,6 +13,17 @@ add_introspection_rules([], ['^tinymce\.models\.HTMLField'])
 add_introspection_rules([], ['^yafotki\.fields\.YFField'])
 
 
+class Cluster(models.Model):
+    name = models.CharField(max_length=250, verbose_name=_("Name"))
+    geometry = models.TextField(max_length=250, blank=True, verbose_name=_("Geometry"))
+
+    class Meta:
+        ordering = ['name',]
+
+    def __unicode__(self):
+        return self.name
+
+
 class Street(models.Model):
     STREET_CHOICES = (
         ('S', _("Street")),
@@ -92,6 +103,7 @@ class House(models.Model):
     material = models.CharField(max_length=1, blank=True, choices=MATERIAL_CHOICES, verbose_name=_("Material"))
     pasport = models.BooleanField(blank=True, verbose_name=_("Pasport status"))
 
+    cluster = models.ForeignKey('Cluster', blank=True, null=True, verbose_name=_("Cluster"))
     street = models.ForeignKey('Street', verbose_name=_("Street"))
     number = models.CharField(max_length=20, verbose_name=_("Number"))
     coord_lon = models.FloatField(max_length=20, blank=True, null=True, verbose_name=_("Longitude"))

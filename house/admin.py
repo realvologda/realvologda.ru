@@ -6,7 +6,17 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 from django.conf import settings
 
-from house.models import Street, House, HousePhoto, HousePassport, HouseEvent
+from house.models import Cluster, Street, House, HousePhoto, HousePassport, HouseEvent
+
+
+class ClusterAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'geometry',)
+        }),
+    )
+
+    list_display = ['name',]
 
 
 class StreetAdmin(admin.ModelAdmin):
@@ -37,7 +47,7 @@ class HouseAdmin(admin.ModelAdmin):
             'fields': ('name', 'name_alt', 'material', 'pasport',)
         }),
         (_("Location"), {
-            'fields': ('street', 'number', 'coord_lon', 'coord_lat', 'pasport_address',)
+            'fields': ('cluster', 'street', 'number', 'coord_lon', 'coord_lat', 'pasport_address',)
         }),
         (_("External sources"), {
             'fields': ('kult_id', 'kult_checked', 'kult_problems', 'gudea_checked', 'ruwiki',)
@@ -99,6 +109,7 @@ class HouseAdmin(admin.ModelAdmin):
     list_filter = ['safety', 'state', 'usage', 'protection', 'material',]
     search_fields = ['kult_id',]
 
+admin.site.register(Cluster, ClusterAdmin)
 admin.site.register(Street, StreetAdmin)
 admin.site.register(House, HouseAdmin)
 
