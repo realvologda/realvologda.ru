@@ -166,3 +166,8 @@ header .nav > .active > a {
 .table-well {
 	background: whiteSmoke;
 }
+
+.well h2 {
+	font-weight: normal;
+	font-size: 20px;
+}
