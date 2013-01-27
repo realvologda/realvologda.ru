@@ -3,6 +3,11 @@
 	float: right;
 }
 
+.well h2 {
+	font-weight: normal;
+	font-size: 20px;
+}
+
 .map {
 	height: 250px;
 	margin-bottom: 20px;
