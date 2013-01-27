@@ -62,7 +62,7 @@ class HouseAdmin(admin.ModelAdmin):
             'fields': ('usage', 'ownership', 'land_ownership', 'owner', 'obligation', 'lease', 'tenant',)
         }),
         (_("Additional"), {
-            'fields': ('chronology', 'documents', 'monitoring', 'extra_info', 'hidden_info',)
+            'fields': ('alarm', 'monitoring', 'chronology', 'documents', 'extra_info', 'hidden_info',)
         }),
         (_("Belong to complex"), {
             'fields': ('complex', 'complex_name', 'complex_root', 'complex_kult_id',)

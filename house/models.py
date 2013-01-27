@@ -129,6 +129,7 @@ class House(models.Model):
     chronology = tinymce_models.HTMLField(blank=True, verbose_name=_("Cronology")) # temporary
     documents = tinymce_models.HTMLField(blank=True, verbose_name=_("Documents")) # temporary
     monitoring = tinymce_models.HTMLField(blank=True, verbose_name=_("Monitoring")) # temporary
+    alarm = models.CharField(max_length=250, blank=True, verbose_name=_("Alarm type")) # temporary
 
     complex = models.BooleanField(blank=True, verbose_name=_("Complex"))
     complex_root = models.ForeignKey('House', blank=True, null=True, verbose_name=_("Belong to complex"))
