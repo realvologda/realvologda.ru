@@ -25,12 +25,13 @@
 		<header>
 			<div class="header-top">
 				<h1><a class="brand" href="/">Настоящая Вологда</a></h1>
-				<div class="date">
-					<span class="date-d">{% now "j" %}</span>
-					<span class="date-m">{% now "E" %}</span>
-					<span class="date-y">{% now "Y" %}</span>
-				</div>
-				<div class="quote">Если ты выстрелишь в прошлое из пистолета,<br />будущее выстрелит в тебя из пушки.</div>
+				<strong>Движение и сообщество</strong>
+				<a class="header-report" href="{{ STATIC_URL }}docs/realvologda-report-2012.pdf">Отчёт за 2012 год</a>
+				<ul>
+					<li>Основано 21 ноября 2011 года для координации действий<br />в защиту культурного наследия Вологды</li>
+					<li>Некоммерческое, независимое гражданское сообщество</li>
+					<li>Более 1000 участников (<a href="//vk.com/realvologda">группа ВКонтакте</a>)</li>
+				</ul>
 			</div>
 
 			{% show_menu "Main" "nav nav-pills" %}
