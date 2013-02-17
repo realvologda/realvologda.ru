@@ -8,7 +8,7 @@
 	<title>{% block title %}{% endblock %} Настоящая Вологда</title>
 
 	<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
-	<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/style-bs.css" />
 
 	<!--[if lt IE 9]>
@@ -16,6 +16,7 @@
 	<![endif]-->
 
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
 
 	{% block head %}
 	{% endblock %}

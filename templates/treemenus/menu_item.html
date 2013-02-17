@@ -1,8 +1,9 @@
 {% load tree_menu_tags %}
 
 {% if menu_item.has_children %}
-	<li{% ifequal request.path menu_item.url %} class="active"{% endifequal %}><a href="{{ menu_item.url }}">{{ menu_item.caption }}</a>
-		<ul>
+	<li class="dropdown{% ifequal request.path menu_item.url %} active"{% endifequal %}">
+		<a class="dropdown-toggle" href="{{ menu_item.url }}" data-toggle="dropdown">{{ menu_item.caption }} <b class="caret"></b></a>
+		<ul class="dropdown-menu">
 			{% for child in menu_item.children %}
 				{% show_menu_item child %}
 			{% endfor %}
@@ -11,5 +12,4 @@
 {% else %}
 	<li{% ifequal request.path menu_item.url %} class="active"{% endifequal %}><a href="{{ menu_item.url }}">{{ menu_item.caption }}</a></li>
 {% endif %}
-
 
