@@ -122,18 +122,19 @@ header .nav > .active > a {
 }
 
 .block-title {
-	color: #fff;
-	background: #333;
-	text-transform: lowercase;
-	text-align: center;
+	border-top: 3px solid #e31e24;
+	padding-top: 20px;
+	padding-left: 24px;
+	margin-top: 40px;
+	margin-bottom: 0;
 	font-size: 16px;
+	line-height: 40px;
 }
 
 .entry-block {
 	padding-left: 106px;
 	padding-right: 40px;
 }
-
 .entry-block .date {
 	float: left;
 	margin-left: -112px;
@@ -145,20 +146,21 @@ header .nav > .active > a {
 
 .block-header {
 	margin-bottom: 10px;
-	padding: 5px 24px;
-	background: #e31e24;
 	font-weight: bold;
-	color: #fff;
 }
 
 .block-header a,
 .block-header a:hover {
-	color: #fff;
+	display: block;
 }
 
 .entry-block .block-header {
 	margin-bottom: 5px;
-	padding-top: 6px;
+}
+
+.entry-title {
+	font-size: 24px;
+	line-height: 30px;
 }
 
 .count {
@@ -172,4 +174,9 @@ header .nav > .active > a {
 .well h2 {
 	font-weight: normal;
 	font-size: 20px;
+}
+
+
+#widget-archives ul ul ul {
+	display: none;
 }
