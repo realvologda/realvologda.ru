@@ -22,9 +22,14 @@
 {% endblock %}
 
 {% block sidebar %}
-<div id="widget-populars" class="widget">
-  <h3 class="block-title">Популярные статьи</h3>
-  {% get_popular_entries 5 %}
+<a class="header-report" href="{{ STATIC_URL }}docs/realvologda-report-2012.pdf">Отчёт за 2012 год</a>
+<div id="widget-archives" class="widget" style="clear:both">
+	<h3 class="block-title">Движение и сообщество</h3>
+	<ul>
+		<li>Основано 21 ноября 2011 года для координации действий<br />в защиту культурного наследия Вологды</li>
+		<li>Некоммерческое, независимое гражданское сообщество</li>
+		<li><a href="//vk.com/realvologda">Группа ВКонтакте</a></li>
+	</ul>
 </div>
 <div id="widget-archives" class="widget">
   <h3 class="block-title">Архив</h3>

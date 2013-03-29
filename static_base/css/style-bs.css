@@ -25,11 +25,11 @@ body {
 
 .header-report {
 	display: block;
-	float: right;
-	min-width: 64px;
+	width: 120px;
+	text-align: center;
 	padding-top: 64px;
 	background: url('../img/paper-clip.png') 50% 0 no-repeat;
-	margin: -10px 0 0 20px;
+	margin: 0 auto 20px;
 }
 
 header h1 {
