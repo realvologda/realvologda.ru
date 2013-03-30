@@ -52,10 +52,9 @@ header a.brand {
 .date {
 	display: block;
 	text-align: center;
-	width: 96px;
+	width: 62px;
 	height: 62px;
-	padding-top: 25px;
-	background: url(../img/date-braces.png) 0 0 no-repeat;
+	padding-top: 12px;
 }
 
 .date-d,
@@ -132,12 +131,12 @@ header .nav > .active > a {
 }
 
 .entry-block {
-	padding-left: 106px;
+	padding-left: 76px;
 	padding-right: 40px;
 }
 .entry-block .date {
 	float: left;
-	margin-left: -112px;
+	margin-left: -82px;
 }
 
 .entry-footer {
@@ -149,9 +148,15 @@ header .nav > .active > a {
 	font-weight: bold;
 }
 
-.block-header a,
-.block-header a:hover {
+.block-header a {
 	display: block;
+	font-weight: normal;
+	text-decoration: underline;
+	color: #333;
+}
+
+.block-header a:hover {
+	color: #a3161a;
 }
 
 .entry-block .block-header {
