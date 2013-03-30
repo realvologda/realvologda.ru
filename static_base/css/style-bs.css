@@ -148,15 +148,19 @@ header .nav > .active > a {
 	font-weight: bold;
 }
 
-.block-header a {
+.entry-title a {
 	display: block;
 	font-weight: normal;
 	text-decoration: underline;
 	color: #333;
 }
 
-.block-header a:hover {
+.entry-title a:hover {
 	color: #a3161a;
+}
+
+.entry-tags a:hover {
+	text-decoration: underline;
 }
 
 .entry-block .block-header {
@@ -166,6 +170,14 @@ header .nav > .active > a {
 .entry-title {
 	font-size: 24px;
 	line-height: 30px;
+}
+
+.entry-main-title {
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 30px;
+	margin-top: 0;
+	margin-bottom: 30px;
 }
 
 .count {

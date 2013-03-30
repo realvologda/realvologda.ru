@@ -29,26 +29,28 @@
 		{% endif %}
 		<div class="entry-content">
 			{{ object_content }}
-		</div>
-		{% if continue_reading %}
-		<p class="continue-reading">
+			{% if continue_reading %}
 			<a href="{{ object.get_absolute_url }}"
 			   title="{% blocktrans with object=object.title %}Continue reading {{ object }}{% endblocktrans %}"
 			   rel="bookmark">
-				{% trans "Continue reading" %}
+				Читать дальше&nbsp;→
 			</a>
-		</p>
-		{% endif %}
+			{% endif %}
+		</div>
 	</div>
 
 	<div class="entry-footer">
+		{% if not continue_reading %}
 		<p class="entry-tags">
 			{% tags_for_object object as tag_list %}
+			<small>Теги записи:</small>
 			{% for tag in tag_list %}
-			<a href="{% url 'zinnia_tag_detail' tag %}"
+			<a class="badge"
+			   href="{% url 'zinnia_tag_detail' tag %}"
 			   title="{% blocktrans %}Show all entries tagged by {{ tag }}{% endblocktrans %}"
 			   rel="tag">{{ tag }}</a>
 			{% endfor %}
 		</p>
+		{% endif %}
 	</div>
 </div>
