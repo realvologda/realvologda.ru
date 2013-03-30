@@ -72,50 +72,19 @@
 
 {% block entry-comments %}
 <div id="comments">
-	<div class="block-header">
-		<h3>{% trans "Comments" %}</h3>
-	</div>
-  {% with comment_list=object.comments %}
-  {% if comment_list.count %}
-  <ol id="comment-list">
-    {% for comment in comment_list %}
-    <li id="comment_{{ comment.pk }}" class="comment vcard {% cycle box1,box2 %}{% if comment.user in object.authors.all %} post-author{% endif %}">
-      <img src="{% get_gravatar comment.email 60 "G" %}"
-           class="gravatar photo" alt="{{ comment.user_name }}"/>
-      <p class="comment-info">
-	{% if comment.url %}
-	<a href="{{ comment.url }}" rel="external nofollow"
-           class="fn url">{{ comment.user_name }}</a>
-	{% else %}
-	{{ comment.user_name }}
-	{% endif %}
-	{% trans "on" %}
-        <abbr class="comment-published" title="{{ comment.submit_date|date:"c" }}Z">
-          {{ comment.submit_date|date:"SHORT_DATETIME_FORMAT" }}
-        </abbr>
-      </p>
-      {{ comment.comment|linebreaks }}
-    </li>
-    {% endfor %}
-  </ol>
-    {% if not object.comments_are_open %}
-  <p>{% trans "Comments are closed." %}</p>
-    {% endif %}
-  {% else %}
-    {% if object.comments_are_open %}
-  <p>{% trans "No comments yet." %}</p>
-    {% else %}
-  <p>{% trans "Comments are closed." %}</p>
-    {% endif %}
-  {% endif %}
-  {% endwith %}
-</div>
-{% endblock %}
+	<!-- Put this script tag to the <head> of your page -->
+	<script type="text/javascript" src="//vk.com/js/api/openapi.js?87"></script>
 
-{% block entry-comments-form %}
-{% if object.comments_are_open %}
-  {% render_comment_form for object %}
-{% endif %}
+	<script type="text/javascript">
+	  VK.init({apiId: 3534464, onlyWidgets: true});
+	</script>
+
+	<!-- Put this div tag to the place, where the Comments block will be -->
+	<div id="vk_comments"></div>
+	<script type="text/javascript">
+		VK.Widgets.Comments("vk_comments", {limit: 15, width: "500", attach: "*"});
+	</script>
+</div>
 {% endblock %}
 
 </div>
