@@ -15,18 +15,18 @@
 
 {% block content-title %}
 {% if category %}
-<h1 class="entry-main-title">↓ Категория «{{ category }}»</h1>
+<h1 class="entry-main-title">↓ Категория <strong>«{{ category }}»</strong></h1>
 {% if category.description %}
 <p>{{ category.description|striptags|safe }}</p>
 {% endif %}
 {% endif %}
 
 {% if tag %}
-<h1 class="entry-main-title">↓ Все записи по теме «{{ tag }}»</h1>
+<h1 class="entry-main-title">↓ Все записи по теме <strong>«{{ tag }}»</strong></h1>
 {% endif %}
 
 {% if author %}
-<h1 class="entry-main-title">↓ Записи автора: {{ author }}</h1>
+<h1 class="entry-main-title">↓ Записи автора: <strong>{{ author }}</strong></h1>
 {% endif %}
 {% endblock %}
 
