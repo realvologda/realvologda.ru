@@ -6,6 +6,10 @@
     <meta name="generator" content="Zinnia {{ ZINNIA_VERSION }}" />
 {% endblock %}
 
+{% block head %}
+	<script type="text/javascript" src="//vk.com/js/api/openapi.js?87"></script>
+{% endblock %}
+
 {% block link %}
     <link rel="index" href="{% url 'zinnia_entry_archive_index' %}" />
     <link rel="author" type="text/plain" href="{% url 'zinnia_humans' %}" />
@@ -28,9 +32,12 @@
 	<ul>
 		<li>Основано 21 ноября 2011 года для координации действий<br />в защиту культурного наследия Вологды</li>
 		<li>Некоммерческое, независимое гражданское сообщество</li>
-		<li><a href="//vk.com/realvologda">Группа ВКонтакте</a></li>
 	</ul>
 </div>
+<div id="vk_groups" style="margin:20px auto 0"></div>
+<script type="text/javascript">
+VK.Widgets.Group("vk_groups", {mode: 1, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 32332133);
+</script>
 <div id="widget-archives" class="widget">
   <h3 class="block-title">Архив</h3>
   {% get_archives_entries_tree %}
