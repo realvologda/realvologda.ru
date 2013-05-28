@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 from django.conf import settings
 
-from house.models import Cluster, Street, House, HousePhoto, HousePassport, HouseEvent
+from models import *
 
 
 class ClusterAdmin(admin.ModelAdmin):
