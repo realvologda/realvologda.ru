@@ -1,0 +1,7 @@
+django
+mysql-python
+south
+django-blog-zinnia
+django-tinymce
+feedparser
+pil
